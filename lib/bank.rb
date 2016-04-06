@@ -1,3 +1,7 @@
+require "statement"
+require "account"
+require "activity"
+
 class Bank
   def initialize
     @account = Account.new
@@ -19,5 +23,14 @@ class Bank
 
   def withdraw(amount)
     @account.withdraw(amount)
+    @activity.save_withdrawal(amount, balance)
+  end
+
+  def latest_activity
+    Statement.new.latest(activity)
+  end
+
+  def print_statement
+    Statement.new.full(activity)
   end
 end
