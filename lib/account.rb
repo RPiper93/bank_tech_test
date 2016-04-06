@@ -1,5 +1,5 @@
 class Account
-  INITIAL_BALANCE = 0
+  INITIAL_BALANCE = 0.00
 
   def initialize
     @balance = INITIAL_BALANCE
